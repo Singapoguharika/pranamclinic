@@ -1,0 +1,1116 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   pranam Clinic - Healing Naturally, Living Fully
+  </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Open Sans', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Combined sticky header container */
+    #header-container {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 125, 110, 0.15);
+    }
+    /* Top bar styles */
+    #top-bar {
+      margin-bottom: 0;
+      border-bottom: 2px solid #d96a1a;
+      background-color: #F47B20;
+      color: white;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.25rem 1rem;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      user-select: none;
+      z-index: 101;
+    }
+     @media (max-width:768px) {
+      #top-bar {
+        display: none;
+      }
+      nav {
+        border-bottom: 2px solid #299FB0;
+      }
+    }
+    #top-bar .left, #top-bar .right {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    #top-bar .left .location {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    #top-bar .left .phone {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    #top-bar a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    #top-bar a:hover {
+      background-color: transparent;
+    }
+    #top-bar .phone-button {
+      background-color: transparent;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 1.25rem;
+      transition: color 0.3s ease;
+    }
+    
+    #top-bar .right a {
+      font-size: 1.25rem;
+      transition: color 0.3s ease;
+    }
+    #top-bar .right a:hover {
+      color: #d96a1a;
+    }
+    /* Navbar styles */
+    nav {
+      margin-top: 0;
+      border-top: none;
+      background-color: white;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      transition: box-shadow 0.3s ease, background-color 0.3s ease;
+      z-index: 100;
+    }
+    nav.scrolled {
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      background-color: white;
+    }
+    /* Animate hover for nav links */
+    nav a:hover, nav button:hover {
+      color: #F47B20 !important;
+      text-shadow: none !important;
+      animation: none !important;
+      background-color: transparent;
+    }
+    /* Animate hover for cards */
+    .hover\:shadow-lg:hover {
+      box-shadow: 0 10px 15px -3px rgba(244, 123, 32, 0.4), 0 4px 6px -4px rgba(244, 123, 32, 0.3);
+      animation: none !important;
+    }
+    /* Animate buttons on hover */
+    button:hover, input[type="submit"]:hover {
+      box-shadow: 0 0 8px #F47B20;
+      animation: none !important;
+    }
+    /* Dropdown background and clickable */
+    nav .group:hover > div, nav .group:focus-within > div {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      background-color: #F47B20;
+      border-radius: 0.375rem;
+      box-shadow: 0 4px 6px rgba(244, 123, 32, 0.4);
+      transition: background-color 0.3s ease;
+      z-index: 60;
+    }
+    nav .group > button:focus {
+      outline: none;
+      color: #F47B20;
+    }
+    nav .group > div a {
+      color: white !important;
+    }
+    nav .group > div a:hover {
+      background-color: #d96a1a !important;
+      color: white !important;
+    }
+    /* Mobile dropdown visible and background */
+    #mobile-more-menu.show {
+      display: flex !important;
+      background-color: #F47B20;
+      border-radius: 0.375rem;
+      box-shadow: 0 4px 6px rgba(244, 123, 32, 0.4);
+      flex-direction: column;
+      transition: background-color 0.3s ease;
+      z-index: 60;
+    }
+    #mobile-more-btn:focus {
+      outline: none;
+      color: #F47B20;
+    }
+    #mobile-more-menu a {
+      color: white !important;
+      padding: 0.5rem;
+    }
+    #mobile-more-menu a:hover {
+      background-color: #d96a1a !important;
+      color: white !important;
+    }
+    /* Appointment horizontal bar before footer */
+    #appointment-bar {
+      background-color: #F47B20;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 15px rgba(244, 123, 32, 0.6);
+      user-select: none;
+      border-radius: 0.375rem;
+      margin-top: 4rem;
+    }
+    #appointment-bar:hover {
+      background-color: #d96a1a;
+    }
+    /* Highlighted boxes below carousel with increased size */
+    #highlighted-boxes {
+      max-width: 7xl;
+      margin: -2rem auto 2rem auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0.75rem;
+      justify-content: center;
+      position: relative;
+      z-index: 30;
+    }
+    #highlighted-boxes > div {
+      flex: 1 1 0;
+      color: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.3rem;
+      cursor: default;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 0.5rem;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    #highlighted-boxes > div:nth-child(1) {
+      background-color: #F47B20;
+      border: 2px solid #d96a1a;
+    }
+    #highlighted-boxes > div:nth-child(2) {
+      background-color: #299FB0;
+      border: 2px solid #299FB0;
+    }
+    #highlighted-boxes > div:nth-child(3) {
+      background-color: #F4A261;
+      border: 2px solid #d17a1a;
+    }
+    #highlighted-boxes > div:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      #highlighted-boxes {
+        flex-direction: column;
+        margin: -1rem auto 2rem auto;
+      }
+      #highlighted-boxes > div {
+        margin: 0 0 0.5rem 0 !important;
+        min-height: auto;
+        padding: 1rem;
+      }
+    }
+    /* Banner carousel quote text */
+    .carousel-quote {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 1.75rem;
+      font-weight: 700;
+      text-align: center;
+      max-width: 90%;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+      pointer-events: none;
+      user-select: none;
+      z-index: 25;
+      font-style: italic;
+    }
+    @media (min-width: 768px) {
+      .carousel-quote {
+        font-size: 2.5rem;
+        max-width: 60%;
+      }
+    }
+    /* About Us Section with image and content side by side */
+    #about-section {
+      max-width: 7xl;
+      margin: 0 auto 4rem auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    #about-section .about-image {
+      flex: 1 1 400px;
+      max-width: 600px;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(244, 123, 32, 0.3);
+    }
+    #about-section .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    #about-section .about-content {
+      flex: 1 1 400px;
+      max-width: 600px;
+    }
+    #about-section .about-content h2 {
+      color: #299FB0;
+      font-size: 2.25rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    #about-section .about-content p {
+      color: #4B5563;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    #about-section .about-content a {
+      display: inline-block;
+      background-color: #F47B20;
+      color: white;
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    #about-section .about-content a:hover {
+      background-color: #d96a1a;
+    }
+    @media (max-width: 768px) {
+      #about-section {
+        flex-direction: column;
+        padding: 0 1rem;
+      }
+      #about-section .about-image, #about-section .about-content {
+        max-width: 100%;
+        flex: 1 1 100%;
+      }
+    }
+    /* Footer background image overlay */
+    footer {
+      position: relative;
+      overflow: hidden;
+    }
+    footer img.footer-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.1;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+    footer .footer-content {
+      position: relative;
+      z-index: 10;
+    }
+    /* Carousel arrows mobile adjustments */
+    @media (max-width: 767px) {
+      #prevBtn, #nextBtn {
+        top: 3.75rem; /* below navbar toggle */
+        z-index: 9999;
+        transition: opacity 0.3s ease;
+      }
+      #prevBtn.hide, #nextBtn.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+    /* Mobile nav sticky and visible */
+    @media (max-width: 767px) {
+      nav {
+        position: relative;
+        top: 0;
+        z-index: 100;
+        background-color: white;
+      }
+      #mobile-menu {
+        position: fixed;
+        top: 4.1rem; /* height of combined header approx */
+        left: 0;
+        right: 0;
+        max-height: calc(100vh - 3.5rem);
+        overflow-y: auto;
+        z-index: 105;
+        background-color: white;
+        transition: transform 0.3s ease;
+      }
+      #mobile-menu.hidden {
+        transform: translateY(-100%);
+      }
+      #mobile-menu:not(.hidden) {
+        transform: translateY(0);
+      }
+      #mobile-menu a {
+        padding: 0.5rem;
+        font-size: 14px;
+      }
+    }
+    /* Custom rectangle logo style */
+    /* #nav-logo {
+      background-color: #F47B20;
+      color: white !important;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      margin-top: 0.25rem;
+    }
+    #nav-logo:hover {
+      background-color: #d96a1a;
+      color: white !important;
+    }
+    #nav-logo i {
+      background-color: white;
+      color: #F47B20;
+      padding: 0.25rem;
+      border-radius: 0.25rem;
+      font-size: 1.75rem !important;
+      line-height: 1;
+    } */
+    /* Banner carousel slider styles */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      touch-action: pan-y;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      height: 100vh;
+    }
+    .carousel-item {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      z-index: 0;
+      user-select: none;
+    }
+    .carousel-item.active {
+      opacity: 1;
+      position: relative;
+      z-index: 10;
+    }
+    .carousel-item img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      display: block;
+    }
+    /* Why Homeopathy cards hover color change */
+    #why-homeopathy .bg-white:hover {
+      background-color: #F47B20 !important;
+      color: white !important;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    #why-homeopathy .bg-white:hover i,
+    #why-homeopathy .bg-white:hover h3,
+    #why-homeopathy .bg-white:hover p {
+      color: white !important;
+    }
+    /* Featured Treatments layout with image bigger and content beside */
+    #treatments .treatment-card {
+      background-color: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 1rem;
+    }
+    #treatments .treatment-card:hover {
+      box-shadow: 0 10px 15px -3px rgba(244, 123, 32, 0.4), 0 4px 6px -4px rgba(244, 123, 32, 0.3);
+    }
+    #treatments .treatment-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 9999px;
+      object-fit: cover;
+      flex-shrink: 0;
+      margin-right: 1rem;
+    }
+    #treatments .treatment-content {
+      flex: 1;
+      text-align: left;
+    }
+    #treatments .treatment-content h3 {
+      color: #F47B20;
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    #treatments .treatment-content p {
+      color: #4B5563;
+      font-size: 0.875rem;
+    }
+    @media (max-width: 768px) {
+      #treatments .treatment-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      #treatments .treatment-card img {
+        margin-right: 0;
+        margin-bottom: 0.75rem;
+      }
+      #treatments .treatment-content {
+        text-align: center;
+      }
+    }
+    /* Testimonials carousel with text and image side by side */
+    #testimonials .carousel-item-testimonial {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background-color: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: opacity 0.5s ease;
+    }
+    #testimonials .carousel-item-testimonial p {
+      font-style: italic;
+      color: #4B5563;
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+    #testimonials .testimonial-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    #testimonials .testimonial-info p:first-child {
+      font-weight: 700;
+      color: #F47B20;
+      font-size: 1.125rem;
+    }
+    #testimonials .testimonial-info p:last-child {
+      font-size: 0.875rem;
+      color: #6B7280;
+    }
+    #testimonials .carousel-item-testimonial img {
+      width: 96px;
+      height: 96px;
+      border-radius: 9999px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    @media (max-width: 768px) {
+      #testimonials .carousel-item-testimonial {
+        flex-direction: column;
+        text-align: center;
+      }
+      #testimonials .carousel-item-testimonial img {
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+ </head>
+ <body class="bg-white text-gray-800">
+  <!-- Combined Sticky Header Container -->
+  <div id="header-container" role="banner">
+   <!-- Top Bar -->
+   <div aria-label="Top contact and social media bar" id="top-bar" role="region">
+    <div class="left">
+     <div aria-label="Clinic location" class="location">
+      <i aria-hidden="true" class="fas fa-map-marker-alt"></i>
+      <span>123 Green Leaf Street, Wellness City</span>
+     </div>
+     <div aria-label="Clinic phone number">
+      <i aria-hidden="true" class="fas fa-phone-alt"></i>
+      <a aria-label="Call pranam Clinic phone number" href="tel:+1234567890" class="hover:!text-[#299FB0] hover:font-semibold">+1 (234) 567-890</a>
+     </div>
+    </div>
+    <div aria-label="Social media links" class="right">
+     <button aria-label="Call pranam Clinic phone number" class="phone-button hidden md:inline-block hover:!text-[#299FB0]" onclick="window.location.href='tel:+1234567890'">
+      <i class="fas fa-phone"></i>
+     </button>
+     <a aria-label="Facebook" href="#" class="hidden md:inline-block hover:!text-[#299FB0]" tabindex="0"><i class="fab fa-facebook-f"></i></a>
+     <a aria-label="Twitter" href="#" class="hidden md:inline-block hover:!text-[#299FB0]" tabindex="0"><i class="fab fa-twitter"></i></a>
+     <a aria-label="Instagram" href="#" class="hidden md:inline-block hover:!text-[#299FB0]" tabindex="0"><i class="fab fa-instagram"></i></a>
+     <a aria-label="LinkedIn" href="#" class="hidden md:inline-block hover:!text-[#299FB0]" tabindex="0"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+   </div>
+   <!-- Navbar -->
+   <nav id="navbar" class="">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex justify-between h-16 items-center">
+      <a aria-label="Pranam Clinic logo" href="#home" id="nav-logo" role="img">
+            <img src="./assets/WhatsApp Image 2025-08-20 at 11.13.14 AM.jpeg" alt="Pranam Clinic" class="h-[100%] w-[100%]">
+          </a>
+      <div class="hidden md:flex space-x-8 font-semibold text-gray-700 items-center">
+       <a class="hover:text-[#F47B20] transition-colors duration-300" href="index">Home</a>
+       <a class="hover:text-[#F47B20] transition-colors duration-300" href="aboutus">About Us</a>
+       <a class="hover:text-[#F47B20] transition-colors duration-300" href="whyhomeopathy">Why Homeopathy</a>
+       <!-- <a class="hover:text-[#F47B20] transition-colors duration-300" href="ourdoctors">Our Doctors</a> -->
+       <a class="hover:text-[#F47B20] transition-colors duration-300" href="treatment">Treatments</a>
+       <a class="hover:text-[#F47B20] transition-colors duration-300" href="gallery">Gallery</a>
+       <div class="relative group">
+        <button aria-expanded="false" aria-haspopup="true" class="hover:shadow-none transition-colors duration-300 flex items-center space-x-1 focus:outline-none" id="moreBtn">
+         <span>More</span>
+         <i class="fas fa-chevron-down text-sm"></i>
+        </button>
+        <div class="absolute left-0 mt-5 w-48 bg-[#F47B20] rounded-md shadow-lg opacity-0 invisible pointer-events-none transition-opacity duration-300 z-50">
+         <a class="block px-4 py-2 text-white hover:bg-[#d96a1a] transition-colors duration-300" href="contactus">Contact Us</a>
+         <a class="block px-4 py-2 text-white hover:bg-[#d96a1a] transition-colors duration-300" href="blog">Blog</a>
+         <a class="block px-4 py-2 text-white hover:bg-[#d96a1a] transition-colors duration-300" href="testimonials">Testimonials</a>
+         <a class="block px-4 py-2 text-white hover:bg-[#d96a1a] transition-colors duration-300" href="faqs">FAQs</a>
+         <a class="block px-4 py-2 text-white hover:bg-[#d96a1a] transition-colors duration-300" href="privacypolicy">Privacy Policy</a>
+         <a class="block px-4 py-2 text-white hover:bg-[#d96a1a] transition-colors duration-300" href="termsconditions">Terms &amp; Conditions</a>
+         <a class="block px-4 py-2 text-white hover:bg-[#d96a1a] transition-colors duration-300" href="whychooseus">Why Choose Us</a>
+        </div>
+       </div>
+       <a class="ml-4 px-4 py-2 bg-[#F47B20] hover:bg-[#d96a1a] hover:!text-white text-white font-semibold rounded-md transition-colors duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#]" href="bookappointment">Book Appointment</a>
+      </div>
+      <div class="md:hidden">
+       <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu" class="!text-[#299FB0] hover:shadow-none hover:!text-[#299FB0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#]" id="menu-btn">
+        <i class="fas fa-bars fa-lg"></i>
+       </button>
+      </div>
+     </div>
+    </div>
+    <div aria-label="Mobile menu" class="hidden md:hidden bg-white shadow-lg" id="mobile-menu">
+     <a class="block px-4 py-3 border-b border-gray-200 hover:bg-[#F47B20] hover:text-white transition-colors duration-300" href="index">Home</a>
+     <a class="block px-4 py-3 border-b border-gray-200 hover:bg-[#F47B20] hover:text-white transition-colors duration-300" href="aboutus">About Us</a>
+     <a class="block px-4 py-3 border-b border-gray-200 hover:bg-[#F47B20] hover:text-white transition-colors duration-300" href="whyhomeopathy">Why Homeopathy</a>
+     <!-- <a class="block px-4 py-3 border-b border-gray-200 hover:bg-[#F47B20] hover:text-white transition-colors duration-300" href="ourdoctors">Our Doctors</a> -->
+     <a class="block px-4 py-3 border-b border-gray-200 hover:bg-[#F47B20] hover:text-white transition-colors duration-300" href="treatment">Treatments</a>
+      <a class="block px-4 py-3 border-b border-gray-200 hover:bg-[#F47B20] hover:text-white transition-colors duration-300" href="gallery">Gallery</a>
+     <button aria-expanded="false" aria-haspopup="true" class="w-full text-left px-4 py-2 border-b border-gray-200 hover:bg-transparent hover:shadow-none hover:text-white transition-colors duration-300 flex justify-between items-center focus:outline-none" id="mobile-more-btn">
+      More
+      <i class="fas fa-chevron-down text-sm"></i>
+     </button>
+     <div aria-label="More submenu" class="hidden flex-col bg-[#F47B20]" id="mobile-more-menu">
+      <a class="block px-6 py-3 border-b border-gray-200 hover:bg-[#d96a1a] hover:text-white transition-colors duration-300" href="contactus">Contact Us</a>
+      <a class="block px-6 py-3 border-b border-gray-200 hover:bg-[#d96a1a] hover:text-white transition-colors duration-300" href="blog">Blog</a>
+      <a class="block px-6 py-3 border-b border-gray-200 hover:bg-[#d96a1a] hover:text-white transition-colors duration-300" href="testimonials">Testimonials</a>
+      <a class="block px-6 py-3 border-b border-gray-200 hover:bg-[#d96a1a] hover:text-white transition-colors duration-300" href="faqs">FAQs</a>
+      <a class="block px-6 py-3 border-b border-gray-200 hover:bg-[#d96a1a] hover:text-white transition-colors duration-300" href="privacypolicy">Privacy Policy</a>
+      <a class="block px-6 py-3 border-b border-gray-200 hover:bg-[#d96a1a] hover:text-white transition-colors duration-300" href="termsconditions">Terms &amp; Conditions</a>
+      <a class="block px-6 py-3 border-b border-gray-200 hover:bg-[#d96a1a] hover:text-white transition-colors duration-300" href="whychooseus">Why Choose Us</a>
+
+     </div>
+     <a class="block mx-4 my-4 px-4 py-3 bg-[#F47B20] hover:bg-[#d96a1a] text-white font-semibold rounded-md transition-colors duration-300 shadow-md hover:shadow-lg text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00594E]" href="bookappointment">Book Appointment</a>
+    </div>
+   </nav>
+  </div>
+  <script>
+   // Declare variables once to avoid redeclaration errors
+   const menuBtn = document.getElementById('menu-btn');
+   const mobileMenu = document.getElementById('mobile-menu');
+   const mobileMoreBtn = document.getElementById('mobile-more-btn');
+   const mobileMoreMenu = document.getElementById('mobile-more-menu');
+
+   // Toggle mobile menu visibility
+   menuBtn.addEventListener('click', () => {
+     if (mobileMenu.classList.contains('hidden')) {
+       mobileMenu.classList.remove('hidden');
+       menuBtn.setAttribute('aria-expanded', 'true');
+     } else {
+       mobileMenu.classList.add('hidden');
+       menuBtn.setAttribute('aria-expanded', 'false');
+       // Also close the More submenu if open
+       if (mobileMoreMenu.classList.contains('show')) {
+         mobileMoreMenu.classList.remove('show');
+         mobileMoreBtn.setAttribute('aria-expanded', 'false');
+       }
+     }
+     updateCarouselArrowsVisibility();
+   });
+
+   // Toggle mobile "More" submenu visibility
+   mobileMoreBtn.addEventListener('click', () => {
+     if (mobileMoreMenu.classList.contains('show')) {
+       mobileMoreMenu.classList.remove('show');
+       mobileMoreBtn.setAttribute('aria-expanded', 'false');
+     } else {
+       mobileMoreMenu.classList.add('show');
+       mobileMoreBtn.setAttribute('aria-expanded', 'true');
+     }
+   });
+
+   // Close mobile menu when any link or button inside is clicked (except the More button)
+   const mobileMenuLinks = mobileMenu.querySelectorAll('a, button');
+   mobileMenuLinks.forEach(link => {
+     link.addEventListener('click', (e) => {
+       if (link === mobileMoreBtn) return;
+
+       mobileMenu.classList.add('hidden');
+       menuBtn.setAttribute('aria-expanded', 'false');
+
+       if (mobileMoreMenu.classList.contains('show')) {
+         mobileMoreMenu.classList.remove('show');
+         mobileMoreBtn.setAttribute('aria-expanded', 'false');
+       }
+       updateCarouselArrowsVisibility();
+     });
+   });
+
+   // Optional: Close mobile menu if user clicks outside the menu
+   document.addEventListener('click', (e) => {
+     const isClickInsideMenu = mobileMenu.contains(e.target) || menuBtn.contains(e.target);
+     if (!isClickInsideMenu) {
+       if (!mobileMenu.classList.contains('hidden')) {
+         mobileMenu.classList.add('hidden');
+         menuBtn.setAttribute('aria-expanded', 'false');
+       }
+       if (mobileMoreMenu.classList.contains('show')) {
+         mobileMoreMenu.classList.remove('show');
+         mobileMoreBtn.setAttribute('aria-expanded', 'false');
+       }
+       updateCarouselArrowsVisibility();
+     }
+   });
+
+   // Banner Carousel Logic with touch support and auto sliding (fast speed)
+   const carouselItems = document.querySelectorAll('.carousel-item');
+   const prevBtn = document.getElementById('prevBtn');
+   const nextBtn = document.getElementById('nextBtn');
+   let currentIndex = 0;
+   const totalItems = carouselItems.length;
+   let autoSlideInterval;
+
+   function showSlide(index) {
+     carouselItems.forEach((item, i) => {
+       if(i === index){
+         item.classList.add('active');
+         item.style.position = 'relative';
+         item.style.zIndex = '10';
+       } else {
+         item.classList.remove('active');
+         item.style.position = 'absolute';
+         item.style.zIndex = '0';
+       }
+     });
+   }
+
+   function startAutoSlide() {
+     autoSlideInterval = setInterval(() => {
+       currentIndex = (currentIndex + 1) % totalItems;
+       showSlide(currentIndex);
+     }, 3000); // faster speed: 3 seconds
+   }
+
+   function stopAutoSlide() {
+     clearInterval(autoSlideInterval);
+   }
+
+   prevBtn.addEventListener('click', () => {
+     stopAutoSlide();
+     currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+     showSlide(currentIndex);
+     startAutoSlide();
+   });
+
+   nextBtn.addEventListener('click', () => {
+     stopAutoSlide();
+     currentIndex = (currentIndex + 1) % totalItems;
+     showSlide(currentIndex);
+     startAutoSlide();
+   });
+
+   showSlide(currentIndex);
+   startAutoSlide();
+
+   // Touch support for banner carousel
+   let startX = 0;
+   let endX = 0;
+   const carousel = document.querySelector('.carousel');
+
+   carousel.addEventListener('touchstart', (e) => {
+     startX = e.touches[0].clientX;
+     stopAutoSlide();
+   });
+
+   carousel.addEventListener('touchmove', (e) => {
+     endX = e.touches[0].clientX;
+   });
+
+   carousel.addEventListener('touchend', () => {
+     if (startX - endX > 50) {
+       // Swipe left
+       currentIndex = (currentIndex + 1) % totalItems;
+       showSlide(currentIndex);
+     } else if (endX - startX > 50) {
+       // Swipe right
+       currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+       showSlide(currentIndex);
+     }
+     startX = 0;
+     endX = 0;
+     startAutoSlide();
+   });
+
+   // Testimonials Carousel Logic
+   const testimonialItems = document.querySelectorAll('.carousel-item-testimonial');
+   const prevTestimonialBtn = document.getElementById('prevTestimonial');
+   const nextTestimonialBtn = document.getElementById('nextTestimonial');
+   let testimonialIndex = 0;
+   const totalTestimonials = testimonialItems.length;
+
+   function showTestimonial(index) {
+     testimonialItems.forEach((item, i) => {
+       if(i === index){
+         item.style.opacity = '1';
+         item.style.position = 'relative';
+         item.style.zIndex = '10';
+       } else {
+         item.style.opacity = '0';
+         item.style.position = 'absolute';
+         item.style.zIndex = '0';
+       }
+     });
+   }
+
+   prevTestimonialBtn.addEventListener('click', () => {
+     testimonialIndex = (testimonialIndex - 1 + totalTestimonials) % totalTestimonials;
+     showTestimonial(testimonialIndex);
+   });
+
+   nextTestimonialBtn.addEventListener('click', () => {
+     testimonialIndex = (testimonialIndex + 1) % totalTestimonials;
+     showTestimonial(testimonialIndex);
+   });
+
+   setInterval(() => {
+     testimonialIndex = (testimonialIndex + 1) % totalTestimonials;
+     showTestimonial(testimonialIndex);
+   }, 8000);
+
+   showTestimonial(testimonialIndex);
+
+   // Navbar More dropdown accessibility toggle (optional)
+   const moreBtn = document.getElementById('moreBtn');
+   const moreDropdown = moreBtn.nextElementSibling;
+   moreBtn.addEventListener('click', (e) => {
+     e.preventDefault();
+     if (moreDropdown.style.opacity === '1') {
+       moreDropdown.style.opacity = '0';
+       moreDropdown.style.visibility = 'hidden';
+       moreDropdown.style.pointerEvents = 'none';
+       moreBtn.setAttribute('aria-expanded', 'false');
+     } else {
+       moreDropdown.style.opacity = '1';
+       moreDropdown.style.visibility = 'visible';
+       moreDropdown.style.pointerEvents = 'auto';
+       moreBtn.setAttribute('aria-expanded', 'true');
+     }
+   });
+
+   // Close dropdown if clicked outside
+   document.addEventListener('click', (e) => {
+     if (!moreBtn.contains(e.target) && !moreDropdown.contains(e.target)) {
+       moreDropdown.style.opacity = '0';
+       moreDropdown.style.visibility = 'hidden';
+       moreDropdown.style.pointerEvents = 'none';
+       moreBtn.setAttribute('aria-expanded', 'false');
+     }
+   });
+
+   // Appointment bar scroll to form
+   const appointmentBar = document.getElementById('appointment-bar');
+   if(appointmentBar){
+     appointmentBar.addEventListener('click', () => {
+       const form = document.getElementById('book-appointment');
+       if(form){
+         form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+         form.querySelector('input, select, textarea, button').focus();
+       }
+       closeMobileMenu();
+     });
+     appointmentBar.addEventListener('keydown', (e) => {
+       if (e.key === 'Enter' || e.key === ' ') {
+         e.preventDefault();
+         appointmentBar.click();
+       }
+     });
+   }
+
+   // Close mobile menu when clicking on any section link and keep toggle visible
+   const allMobileLinks = document.querySelectorAll('#mobile-menu a, #mobile-more-menu a');
+   allMobileLinks.forEach(link => {
+     link.addEventListener('click', () => {
+       closeMobileMenu();
+     });
+   });
+
+   // Also close desktop "More" dropdown when clicking links inside it
+   const desktopMoreLinks = moreDropdown.querySelectorAll('a');
+   desktopMoreLinks.forEach(link => {
+     link.addEventListener('click', () => {
+       moreDropdown.style.opacity = '0';
+       moreDropdown.style.visibility = 'hidden';
+       moreDropdown.style.pointerEvents = 'none';
+       moreBtn.setAttribute('aria-expanded', 'false');
+     });
+   });
+
+   // Function to close mobile menu and more menu
+   function closeMobileMenu() {
+     if (!mobileMenu.classList.contains('hidden')) {
+       mobileMenu.classList.add('hidden');
+       menuBtn.setAttribute('aria-expanded', 'false');
+     }
+     if (mobileMoreMenu.classList.contains('show')) {
+       mobileMoreMenu.classList.remove('show');
+       mobileMoreBtn.setAttribute('aria-expanded', 'false');
+     }
+     updateCarouselArrowsVisibility();
+   }
+
+   // Hide carousel arrows on mobile when mobile menu is open, show otherwise
+   function updateCarouselArrowsVisibility() {
+     if (window.innerWidth <= 767) {
+       if (!mobileMenu.classList.contains('hidden')) {
+         prevBtn.classList.add('hide');
+         nextBtn.classList.add('hide');
+       } else {
+         prevBtn.classList.remove('hide');
+         nextBtn.classList.remove('hide');
+       }
+     } else {
+       prevBtn.classList.remove('hide');
+       nextBtn.classList.remove('hide');
+     }
+   }
+
+   // Initial check
+   updateCarouselArrowsVisibility();
+
+   // Update on window resize
+   window.addEventListener('resize', () => {
+     updateCarouselArrowsVisibility();
+   });
+
+   // Keep mobile nav sticky and toggle visible on scroll
+   const navbar = document.getElementById('navbar');
+   window.addEventListener('scroll', () => {
+     if (window.innerWidth <= 767) {
+       if (window.scrollY > 0) {
+         navbar.classList.add('scrolled');
+       } else {
+         navbar.classList.remove('scrolled');
+       }
+     }
+   });
+  </script>
+
+
+  <section id="blog-page" class="bg-gray-50 py-12">
+  <div class="container mx-auto px-4 max-w-6xl">
+    
+    <!-- Blog Banner -->
+    <div class="relative w-full h-60 md:h-80 rounded-xl overflow-hidden mb-8">
+      <img src="./assets/blogpage2.jpg" alt="Homeopathy personalized treatment" 
+           class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center px-4">
+        <h1 class="text-2xl md:text-4xl font-bold text-white mb-2">
+          Customizing Your Homeopathy Treatment
+        </h1>
+        <p class="text-white text-sm md:text-base max-w-2xl mt-3">
+          Understand the importance of personalized treatment plans tailored to your unique health needs.
+        </p>
+      </div>
+    </div>
+
+    <!-- Blog Content Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Main Content -->
+      <article class="md:col-span-2 bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl md:text-2xl font-semibold text-[#299FB0] mb-4">Introduction</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">
+          Homeopathy is more than just treating symptoms—it’s about treating the individual. Personalized homeopathic care considers your physical health, emotional state, and lifestyle, creating a unique treatment plan designed to restore balance and well-being.
+        </p>
+
+        <h2 class="text-md font-semibold text-[#000] mb-3">1. Every Patient is Unique</h2>
+        <p class="text-gray-700 mb-6">
+          No two people experience illness in the exact same way. Homeopathy tailors remedies to your personal symptoms and health history.
+        </p>
+
+        <h2 class="text-md font-semibold text-[#000] mb-3">2. Whole-Person Approach</h2>
+        <p class="text-gray-700 mb-6">
+          Your mental, emotional, and physical health are all taken into account to design a comprehensive treatment plan.
+        </p>
+
+        <h2 class="text-md font-semibold text-[#000] mb-3">3. Long-Term Benefits</h2>
+        <p class="text-gray-700 mb-6">
+          Customized treatments not only relieve symptoms but also help prevent recurrence by addressing underlying imbalances.
+        </p>
+
+        <h2 class="text-md font-semibold text-[#000] mb-3">4. Safer for All Ages</h2>
+        <p class="text-gray-700 mb-6">
+          Personalized remedies are gentle and safe, making them suitable for children, adults, and even elderly patients.
+        </p>
+
+        <h2 class="text-md font-semibold text-[#000] mb-3">5. Builds Stronger Immunity</h2>
+        <p class="text-gray-700 mb-6">
+          By considering your unique constitution, homeopathy strengthens your natural defense system for long-term wellness.
+        </p>
+
+        <h2 class="text-xl font-semibold text-[#299FB0] mb-3">Conclusion</h2>
+        <p class="text-gray-700">
+          Personalized homeopathy is about understanding you as a whole person. By focusing on your unique health profile, it provides gentle, effective, and sustainable healing for lasting wellness.
+        </p>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="bg-[#F47B20] p-6 rounded-lg shadow space-y-6">
+        <!-- <div>
+          <h3 class="text-lg font-semibold text-[#000] mb-3">Categories</h3>
+          <ul class="space-y-2 text-black-500">
+            <li><a href="#" class="text-white hover:text-[#555]">Personalized Care</a></li>
+            <li><a href="#" class="text-white hover:text-[#555]">Natural Remedies</a></li>
+            <li><a href="#" class="text-white hover:text-[#555]">Holistic Healing</a></li>
+            <li><a href="#" class="text-white hover:text-[#555]">Wellness Tips</a></li>
+          </ul>
+        </div> -->
+        <div>
+          <h3 class="text-lg font-semibold text-[#000] mb-3">Recent Posts</h3>
+          <ul class="space-y-2 text-black-500">
+            <li><a href="#" class="text-white hover:text-[#555]">Holistic Healing: Mind, Body & Spirit</a></li>
+            <li><a href="#" class="text-white hover:text-[#555]">Benefits of Homeopathy for Chronic Illness</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Share Icons -->
+        <div>
+          <h3 class="text-lg font-semibold text-black-500 mb-3">Share</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="text-[#fff] hover:text-[#299FB0] text-2xl">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="text-[#fff] hover:text-[#299FB0] text-2xl">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-[#fff] hover:text-[#299FB0] text-2xl">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-[#fff] hover:text-[#299FB0] text-2xl">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Footer -->
+<footer class="bg-[#299FB0] text-white py-16 mt-16 relative overflow-hidden">
+    <img alt="Softly blurred background image of homeopathic remedies and natural herbs for footer background"
+      class="footer-bg" height="400"
+      src="https://storage.googleapis.com/a1aa/image/9c3c6b65-6517-4fef-96ee-986b59ea3927.jpg" width="1920" />
+    <div class="footer-content max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div class="flex flex-col items-start space-y-4">
+        <a class="flex items-center space-x-2 text-white text-2xl font-bold" href="index">
+          <i class="fas fa-praying-hands text-[#F47B20] text-3xl"></i>
+          <span>Pranaa Clinic</span>
+        </a>
+        <p class="text-gray-200 max-w-xs">Healing Naturally, Living Fully. Your trusted homeopathy clinic for holistic
+          health and wellness.</p>
+      </div>
+      <div>
+        <h3 class="text-xl text-white font-semibold mb-4 border-b border-[#F47B20] pb-2">Useful Links</h3>
+        <ul class="space-y-2 text-gray-200">
+          <li><a class="hover:!text-[#F47B20] hover:bg-transparent transition-colors duration-300" href="index">Home</a>
+          </li>
+          <li><a class="hover:!text-[#F47B20] hover:bg-transparent transition-colors duration-300" href="aboutus">About
+              Us</a></li>
+          <li><a class="hover:!text-[#F47B20] hover:bg-transparent transition-colors duration-300" href="whyhomeopathy">Why
+              Homeopathy</a></li>
+          <li><a class="hover:!text-[#F47B20] hover:bg-transparent transition-colors duration-300"
+              href="treatment">Treatments</a></li>
+          <li><a class="hover:!text-[#F47B20] hover:bg-transparent transition-colors duration-300" href="gallery">Gallery</a></li>
+          <li><a class="hover:!text-[#F47B20] hover:bg-transparent transition-colors duration-300"
+              href="contactus">Contact Us</a></li>
+          <li><a class="hover:!text-[#F47B20] hover:bg-transparent transition-colors duration-300"
+              href="privacypolicy">Privacy Policy</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl text-white font-semibold mb-4 border-b border-[#F47B20] pb-2">
+          Contact Info
+        </h3>
+        <ul class="space-y-3 text-gray-200">
+          <li class="flex items-center space-x-3">
+            <i class="fas fa-map-marker-alt text-[#F47B20]"></i>
+            <span class="hover:text-[#F47B20]">123 Green Leaf Street, Wellness City</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <i class="fas fa-phone-alt text-[#F47B20]"></i>
+            <span class="hover:text-[#F47B20]">+1 (234) 567-890</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <i class="fas fa-envelope text-[#F47B20]"></i>
+            <span class="hover:text-[#F47B20]">info@pranamclinic.com</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl text-white font-semibold mb-4 border-b border-[#F47B20] pb-2">Follow Us</h3>
+          <div class="flex space-x-6 text-gray-200 text-2xl">
+            <a aria-label="Facebook" class="hover:!text-[#F47B20] hover:bg-transparent" href="#"><i
+                class="fab fa-facebook-f"></i></a>
+            <a aria-label="Twitter" class="hover:!text-[#F47B20] hover:bg-transparent" href="#"><i
+                class="fab fa-twitter"></i></a>
+            <a aria-label="Instagram" class="hover:!text-[#F47B20] hover:bg-transparent" href="#"><i
+                class="fab fa-instagram"></i></a>
+            <a aria-label="LinkedIn" class="hover:!text-[#F47B20] hover:bg-transparent" href="#"><i
+                class="fab fa-linkedin-in"></i></a>
+          </div>
+          <p class="text-white mt-5 md:mt-8 text-sm">© 2024 pranam Clinic. All rights reserved.</p>
+          <p class="text-white leading-5 mt-3 md:mt-5 text-sm">Designed &amp; Developed by - </br> <a class="text-[#f47b20] font-semibold italic" rel="noopener noreferrer" target="_blank">Prodbiz Solutions Private Limited</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+  </html>
